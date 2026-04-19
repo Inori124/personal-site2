@@ -9,7 +9,7 @@
 
 **Live Site:** [https://inori124.github.io/personal-site2/](https://inori124.github.io/personal-site2/)
 
-![Homepage Preview](https://image.thum.io/get/width/1200/https://inori124.github.io/personal-site2/)
+![Homepage Preview](./public/images/me.jpg)
 
 点击上方链接可直接访问网站主页。
 
