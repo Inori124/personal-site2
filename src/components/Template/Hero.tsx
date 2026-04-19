@@ -1,45 +1,47 @@
 import Link from 'next/link';
 
-import ThemePortrait from './ThemePortrait';
-
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-content">
         <div className="hero-avatar">
-          <ThemePortrait width={160} height={160} priority />
+          {/* biome-ignore lint/performance/noImgElement: Static portrait for hero */}
+          <img
+            src="/images/me.jpg"
+            alt="Ying Cao"
+            className="hero-avatar-image"
+            loading="eager"
+            decoding="async"
+          />
         </div>
 
         <h1 className="hero-title">
-          <span className="hero-name">Michael D&apos;Angelo</span>
+          <span className="hero-name">Ying Cao</span>
         </h1>
 
         <p className="hero-tagline">
-          Member of the Technical Staff at{' '}
-          <a href="https://openai.com" className="hero-highlight">
-            OpenAI
+          Applied Statistics graduate student at{' '}
+          <a href="https://english.bnu.edu.cn/" className="hero-highlight">
+            Beijing Normal University
           </a>
-          , where I work on{' '}
-          <a href="https://promptfoo.dev" className="hero-highlight">
-            Promptfoo
-          </a>{' '}
-          and agent security.
+          , focusing on data mining, educational research, and interpretable
+          modeling.
           <br />
-          Previously co-founded, scaled, and sold Promptfoo to OpenAI.
+          Bridging theory and practice through code and storytelling.
         </p>
 
         <div className="hero-chips">
-          <span className="hero-chip">YC Alum</span>
-          <span className="hero-chip">Stanford ICME</span>
-          <span className="hero-chip">Co-founded Arthena & Matroid</span>
+          <span className="hero-chip">R · Python · SQL</span>
+          <span className="hero-chip">Educational Data Mining</span>
+          <span className="hero-chip">Applied Statistics</span>
         </div>
 
         <div className="hero-cta">
           <Link href="/about" className="button button-primary">
             About Me
           </Link>
-          <Link href="/resume" className="button button-secondary">
-            View Resume
+          <Link href="/projects" className="button button-secondary">
+            View Projects
           </Link>
         </div>
       </div>

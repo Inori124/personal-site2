@@ -22,11 +22,19 @@
 
 /* Portrait */
 .hero-avatar {
+  display: block;
   width: 160px;
   height: 160px;
+  min-width: 160px;
+  min-height: 160px;
+  max-width: 160px;
+  max-height: 160px;
+  aspect-ratio: 1 / 1;
   margin: 0 auto 2.5rem;
   border-radius: 50%;
+  overflow: hidden;
   position: relative;
+  isolation: isolate;
   box-shadow:
     var(--shadow-xl),
     0 0 0 1px var(--color-border);
@@ -62,11 +70,14 @@
   opacity: 1;
 }
 
-.hero-avatar img {
+.hero-avatar-image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: 50%;
+  clip-path: circle(50% at 50% 50%);
 }
 
 /* Name */
@@ -188,6 +199,10 @@
   .hero-avatar {
     width: 140px;
     height: 140px;
+    min-width: 140px;
+    min-height: 140px;
+    max-width: 140px;
+    max-height: 140px;
     margin-bottom: 2rem;
   }
 

@@ -8,7 +8,7 @@ import { createPageMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Contact',
-  description: "Contact Michael D'Angelo via email @ hi@mldangelo.com",
+  description: 'Contact Ying Cao via email and social channels.',
   path: '/contact/',
 });
 
@@ -23,7 +23,7 @@ export default function ContactPage() {
         <div className="contact-content">
           <div className="contact-email-block">
             <EmailLink />
-            <p className="contact-hint">Usually respond within 24 hours</p>
+            <p className="contact-hint">Usually respond within 24-48 hours</p>
           </div>
 
           <div className="contact-divider">

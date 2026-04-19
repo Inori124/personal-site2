@@ -7,16 +7,16 @@ export interface Degree {
 
 const degrees: Degree[] = [
   {
-    school: 'Stanford University',
-    degree: 'M.S. Computational and Mathematical Engineering (ICME)',
-    link: 'https://stanford.edu',
-    year: 2016,
+    school: 'Beijing Normal University',
+    degree: 'M.S. Applied Statistics',
+    link: 'https://english.bnu.edu.cn/',
+    year: 2025,
   },
   {
-    school: 'University at Buffalo',
-    degree: 'B.S. Electrical Engineering, Computer Engineering',
-    link: 'https://buffalo.edu',
-    year: 2012,
+    school: 'Anhui University',
+    degree: 'B.S. Mathematics (Applied Mathematics)',
+    link: 'https://www.ahu.edu.cn/',
+    year: 2025,
   },
 ];
 

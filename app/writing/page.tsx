@@ -8,9 +8,9 @@ import { formatDate } from '@/lib/utils';
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: 'Writing',
+    title: 'Articles',
     description:
-      'Articles on AI security, LLM red teaming, and trust & safety.',
+      'A collection of notes, essays, and platform writing links.',
     path: '/writing/',
   }),
   alternates: {
@@ -101,7 +101,7 @@ export default function WritingPage() {
       <article className="writing-page">
         <header className="writing-header">
           <div className="writing-header-row">
-            <h1 className="page-title">Writing</h1>
+            <h1 className="page-title">Articles</h1>
             <a
               href="/feed.xml"
               className="writing-rss-link"

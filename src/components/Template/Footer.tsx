@@ -16,12 +16,12 @@ export default function Footer() {
             <ThemePortrait width={80} height={80} />
           </Link>
           <div className="footer-info">
-            <h3>Michael D&apos;Angelo</h3>
+            <h3>Ying Cao</h3>
             <p className="footer-role">{currentRole}</p>
             <p className="footer-copyright">
               &copy; {new Date().getFullYear()} ·{' '}
               <a
-                href="https://github.com/mldangelo/personal-site"
+                href="https://github.com/Inori124/personal-site2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
