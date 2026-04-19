@@ -3,6 +3,7 @@ import { Raleway, Source_Sans_3 } from 'next/font/google';
 import Script from 'next/script';
 
 import GoogleAnalytics from '@/components/Template/GoogleAnalytics';
+import InteractiveWallpaper from '@/components/Template/InteractiveWallpaper';
 import Navigation from '@/components/Template/Navigation';
 import ScrollToTop from '@/components/Template/ScrollToTop';
 import { AUTHOR_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/utils';
@@ -103,6 +104,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        <InteractiveWallpaper />
         <ScrollToTop />
         <div className="site-wrapper">
           <Navigation />

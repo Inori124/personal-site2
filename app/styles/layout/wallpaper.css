@@ -1,0 +1,135 @@
+/* ========================================
+   INTERACTIVE WALLPAPER
+   Playful cursor-reactive ambient background
+   ======================================== */
+
+:root {
+  --wallpaper-x: 50vw;
+  --wallpaper-y: 35vh;
+  --wallpaper-base-1: #ffffff;
+  --wallpaper-base-2: #eaf4ff;
+  --wallpaper-blob-1: rgba(255, 255, 255, 0.85);
+  --wallpaper-blob-2: rgba(188, 220, 255, 0.5);
+  --wallpaper-blob-3: rgba(129, 176, 245, 0.34);
+}
+
+.interactive-wallpaper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 20% 0%, var(--wallpaper-base-1) 0%, transparent 70%),
+    linear-gradient(150deg, var(--wallpaper-base-1) 0%, var(--wallpaper-base-2) 100%);
+}
+
+.interactive-wallpaper__mesh {
+  position: absolute;
+  inset: -10%;
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--wallpaper-blob-2) 20%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--wallpaper-blob-2) 18%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 40px 40px;
+  opacity: 0.32;
+  transform: translate3d(0, 0, 0);
+}
+
+.interactive-wallpaper__orb {
+  position: absolute;
+  left: var(--wallpaper-x);
+  top: var(--wallpaper-y);
+  width: 34rem;
+  height: 34rem;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  transition:
+    left 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  background:
+    radial-gradient(circle at 35% 35%, var(--wallpaper-blob-1) 0%, transparent 48%),
+    radial-gradient(circle at 70% 65%, var(--wallpaper-blob-2) 0%, transparent 58%),
+    radial-gradient(circle at 50% 50%, var(--wallpaper-blob-3) 0%, transparent 70%);
+  filter: blur(2px);
+  opacity: 0.9;
+}
+
+.interactive-wallpaper__ring {
+  position: absolute;
+  left: var(--wallpaper-x);
+  top: var(--wallpaper-y);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  border: 1px solid color-mix(in srgb, var(--wallpaper-blob-2) 68%, transparent);
+  transition:
+    left 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.interactive-wallpaper__ring--one {
+  width: 20rem;
+  height: 20rem;
+  opacity: 0.55;
+  animation: wallpaperPulse 5.5s ease-in-out infinite;
+}
+
+.interactive-wallpaper__ring--two {
+  width: 27rem;
+  height: 27rem;
+  opacity: 0.35;
+  animation: wallpaperPulse 7s ease-in-out infinite reverse;
+}
+
+@keyframes wallpaperPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@media (max-width: 736px) {
+  .interactive-wallpaper__orb {
+    width: 24rem;
+    height: 24rem;
+  }
+
+  .interactive-wallpaper__ring--one {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  .interactive-wallpaper__ring--two {
+    width: 19rem;
+    height: 19rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-wallpaper__orb,
+  .interactive-wallpaper__ring {
+    transition: none;
+  }
+
+  .interactive-wallpaper__ring {
+    animation: none;
+  }
+}
+
+[data-theme='dark'] {
+  --wallpaper-base-1: #0a1d36;
+  --wallpaper-base-2: #040b17;
+  --wallpaper-blob-1: rgba(114, 176, 255, 0.35);
+  --wallpaper-blob-2: rgba(196, 226, 255, 0.22);
+  --wallpaper-blob-3: rgba(255, 255, 255, 0.14);
+}

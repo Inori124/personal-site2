@@ -45,8 +45,10 @@
   max-width: 100%;
   opacity: 1;
   padding: 0;
+  position: relative;
   transition: opacity var(--duration-menu) ease;
   width: 100%;
+  z-index: 1;
 }
 
 body.is-menu-visible .site-wrapper {
