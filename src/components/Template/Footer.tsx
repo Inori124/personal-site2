@@ -1,12 +1,11 @@
 import Link from 'next/link';
 
 import ContactIcons from '@/components/Contact/ContactIcons';
-import work from '@/data/resume/work';
 
 import ThemePortrait from './ThemePortrait';
 
 export default function Footer() {
-  const currentRole = `${work[0].position} at ${work[0].name}`;
+  const currentRole = 'Applied Statistics student at Beijing Normal University';
 
   return (
     <footer className="site-footer-new">

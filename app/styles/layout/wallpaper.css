@@ -1,16 +1,22 @@
 /* ========================================
    INTERACTIVE WALLPAPER
-   Playful cursor-reactive ambient background
+   Irregular fluid motion background
    ======================================== */
 
 :root {
-  --wallpaper-x: 50vw;
-  --wallpaper-y: 35vh;
   --wallpaper-base-1: #ffffff;
   --wallpaper-base-2: #eaf4ff;
   --wallpaper-blob-1: rgba(255, 255, 255, 0.85);
   --wallpaper-blob-2: rgba(188, 220, 255, 0.5);
   --wallpaper-blob-3: rgba(129, 176, 245, 0.34);
+  --blob-1-x: 18vw;
+  --blob-1-y: 20vh;
+  --blob-2-x: 82vw;
+  --blob-2-y: 28vh;
+  --blob-3-x: 50vw;
+  --blob-3-y: 82vh;
+  --veil-x: 0px;
+  --veil-y: 0px;
 }
 
 .interactive-wallpaper {
@@ -22,6 +28,24 @@
   background:
     radial-gradient(120% 80% at 20% 0%, var(--wallpaper-base-1) 0%, transparent 70%),
     linear-gradient(150deg, var(--wallpaper-base-1) 0%, var(--wallpaper-base-2) 100%);
+}
+
+.interactive-wallpaper::before {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  background:
+    conic-gradient(
+      from 180deg at 50% 50%,
+      transparent 0deg,
+      color-mix(in srgb, var(--wallpaper-blob-2) 52%, transparent) 95deg,
+      transparent 190deg,
+      color-mix(in srgb, var(--wallpaper-blob-1) 34%, transparent) 290deg,
+      transparent 360deg
+    );
+  opacity: 0.32;
+  filter: blur(46px);
+  animation: wallpaperSheen 20s linear infinite;
 }
 
 .interactive-wallpaper__mesh {
@@ -39,90 +63,181 @@
       transparent 1px
     );
   background-size: 40px 40px;
-  opacity: 0.32;
+  opacity: 0.24;
   transform: translate3d(0, 0, 0);
+  animation: wallpaperDrift 24s linear infinite;
 }
 
-.interactive-wallpaper__orb {
+.interactive-wallpaper__veil {
   position: absolute;
-  left: var(--wallpaper-x);
-  top: var(--wallpaper-y);
-  width: 34rem;
-  height: 34rem;
-  border-radius: 999px;
-  transform: translate(-50%, -50%);
-  transition:
-    left 240ms cubic-bezier(0.22, 1, 0.36, 1),
-    top 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  inset: -20%;
   background:
-    radial-gradient(circle at 35% 35%, var(--wallpaper-blob-1) 0%, transparent 48%),
-    radial-gradient(circle at 70% 65%, var(--wallpaper-blob-2) 0%, transparent 58%),
-    radial-gradient(circle at 50% 50%, var(--wallpaper-blob-3) 0%, transparent 70%);
-  filter: blur(2px);
+    radial-gradient(
+      60% 50% at 25% 38%,
+      color-mix(in srgb, var(--wallpaper-blob-1) 44%, transparent) 0%,
+      transparent 78%
+    ),
+    radial-gradient(
+      64% 58% at 76% 26%,
+      color-mix(in srgb, var(--wallpaper-blob-2) 48%, transparent) 0%,
+      transparent 76%
+    ),
+    radial-gradient(
+      56% 50% at 58% 72%,
+      color-mix(in srgb, var(--wallpaper-blob-3) 52%, transparent) 0%,
+      transparent 80%
+    );
+  filter: blur(10px);
   opacity: 0.9;
+  transform: translate3d(var(--veil-x), var(--veil-y), 0);
+  animation: wallpaperVeil 16s ease-in-out infinite;
 }
 
-.interactive-wallpaper__ring {
+.interactive-wallpaper__blob {
   position: absolute;
-  left: var(--wallpaper-x);
-  top: var(--wallpaper-y);
-  border-radius: 999px;
   transform: translate(-50%, -50%);
-  border: 1px solid color-mix(in srgb, var(--wallpaper-blob-2) 68%, transparent);
-  transition:
-    left 300ms cubic-bezier(0.22, 1, 0.36, 1),
-    top 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.interactive-wallpaper__ring--one {
-  width: 20rem;
-  height: 20rem;
-  opacity: 0.55;
-  animation: wallpaperPulse 5.5s ease-in-out infinite;
+.interactive-wallpaper__blob--one {
+  width: 35rem;
+  height: 30rem;
+  left: var(--blob-1-x);
+  top: var(--blob-1-y);
 }
 
-.interactive-wallpaper__ring--two {
-  width: 27rem;
-  height: 27rem;
-  opacity: 0.35;
-  animation: wallpaperPulse 7s ease-in-out infinite reverse;
+.interactive-wallpaper__blob--two {
+  width: 30rem;
+  height: 32rem;
+  left: var(--blob-2-x);
+  top: var(--blob-2-y);
 }
 
-@keyframes wallpaperPulse {
+.interactive-wallpaper__blob--three {
+  width: 42rem;
+  height: 29rem;
+  left: var(--blob-3-x);
+  top: var(--blob-3-y);
+}
+
+.interactive-wallpaper__blob-shape {
+  width: 100%;
+  height: 100%;
+  filter: blur(14px);
+  opacity: 0.68;
+  background: radial-gradient(
+    circle at 34% 28%,
+    var(--wallpaper-blob-1) 0%,
+    color-mix(in srgb, var(--wallpaper-blob-2) 75%, transparent) 42%,
+    transparent 76%
+  );
+}
+
+.interactive-wallpaper__blob-shape--one {
+  animation: wallpaperBlobOne 18s ease-in-out infinite;
+}
+
+.interactive-wallpaper__blob-shape--two {
+  opacity: 0.62;
+  animation: wallpaperBlobTwo 22s ease-in-out infinite;
+}
+
+.interactive-wallpaper__blob-shape--three {
+  opacity: 0.56;
+  animation: wallpaperBlobThree 20s ease-in-out infinite;
+}
+
+@keyframes wallpaperDrift {
   0%,
   100% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.08);
+    transform: translate3d(-14px, -10px, 0);
+  }
+}
+
+@keyframes wallpaperVeil {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(12px, -10px, 0) scale(1.03);
+  }
+}
+
+@keyframes wallpaperBlobOne {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+    border-radius: 58% 42% 61% 39% / 44% 57% 43% 56%;
+  }
+  50% {
+    transform: rotate(5deg) scale(1.05);
+    border-radius: 42% 58% 49% 51% / 60% 41% 59% 40%;
+  }
+}
+
+@keyframes wallpaperBlobTwo {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+    border-radius: 64% 36% 57% 43% / 48% 54% 46% 52%;
+  }
+  50% {
+    transform: rotate(-6deg) scale(1.06);
+    border-radius: 39% 61% 44% 56% / 62% 38% 62% 38%;
+  }
+}
+
+@keyframes wallpaperBlobThree {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+    border-radius: 46% 54% 38% 62% / 54% 44% 56% 46%;
+  }
+  50% {
+    transform: rotate(4deg) scale(1.04);
+    border-radius: 60% 40% 56% 44% / 40% 60% 40% 60%;
+  }
+}
+
+@keyframes wallpaperSheen {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.03);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
   }
 }
 
 @media (max-width: 736px) {
-  .interactive-wallpaper__orb {
-    width: 24rem;
-    height: 24rem;
+  .interactive-wallpaper__blob--one {
+    width: 23rem;
+    height: 20rem;
   }
 
-  .interactive-wallpaper__ring--one {
-    width: 14rem;
-    height: 14rem;
+  .interactive-wallpaper__blob--two {
+    width: 21rem;
+    height: 22rem;
   }
 
-  .interactive-wallpaper__ring--two {
-    width: 19rem;
-    height: 19rem;
+  .interactive-wallpaper__blob--three {
+    width: 28rem;
+    height: 20rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .interactive-wallpaper__orb,
-  .interactive-wallpaper__ring {
-    transition: none;
-  }
-
-  .interactive-wallpaper__ring {
+  .interactive-wallpaper::before,
+  .interactive-wallpaper__mesh,
+  .interactive-wallpaper__veil,
+  .interactive-wallpaper__blob-shape {
     animation: none;
+    transition: none;
   }
 }
 
