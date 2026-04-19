@@ -3,6 +3,7 @@ interface ThemePortraitProps {
   height: number;
   priority?: boolean;
   className?: string;
+  src?: string;
 }
 
 /**
@@ -17,12 +18,13 @@ export default function ThemePortrait({
   height,
   priority = false,
   className = '',
+  src = '/images/me.jpg',
 }: ThemePortraitProps) {
   return (
     <span className={`theme-portrait ${className}`}>
       {/* biome-ignore lint/performance/noImgElement: Using native img to avoid next/image runtime overhead for static export */}
       <img
-        src="/images/me.jpg"
+        src={src}
         alt="Ying Cao"
         width={width}
         height={height}

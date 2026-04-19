@@ -15,6 +15,12 @@
   --blob-2-y: 28vh;
   --blob-3-x: 50vw;
   --blob-3-y: 82vh;
+  --blob-1-dx: 0px;
+  --blob-1-dy: 0px;
+  --blob-2-dx: 0px;
+  --blob-2-dy: 0px;
+  --blob-3-dx: 0px;
+  --blob-3-dy: 0px;
   --veil-x: 0px;
   --veil-y: 0px;
 }
@@ -71,6 +77,14 @@
 .interactive-wallpaper__veil {
   position: absolute;
   inset: -20%;
+  transform: translate3d(var(--veil-x), var(--veil-y), 0);
+  transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.interactive-wallpaper__veil-flow {
+  position: absolute;
+  inset: 0;
   background:
     radial-gradient(
       60% 50% at 25% 38%,
@@ -89,13 +103,11 @@
     );
   filter: blur(10px);
   opacity: 0.9;
-  transform: translate3d(var(--veil-x), var(--veil-y), 0);
   animation: wallpaperVeil 16s ease-in-out infinite;
 }
 
 .interactive-wallpaper__blob {
   position: absolute;
-  transform: translate(-50%, -50%);
 }
 
 .interactive-wallpaper__blob--one {
@@ -103,6 +115,12 @@
   height: 30rem;
   left: var(--blob-1-x);
   top: var(--blob-1-y);
+  transform: translate(
+    calc(-50% + var(--blob-1-dx)),
+    calc(-50% + var(--blob-1-dy))
+  );
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .interactive-wallpaper__blob--two {
@@ -110,6 +128,12 @@
   height: 32rem;
   left: var(--blob-2-x);
   top: var(--blob-2-y);
+  transform: translate(
+    calc(-50% + var(--blob-2-dx)),
+    calc(-50% + var(--blob-2-dy))
+  );
+  transition: transform 1250ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .interactive-wallpaper__blob--three {
@@ -117,6 +141,12 @@
   height: 29rem;
   left: var(--blob-3-x);
   top: var(--blob-3-y);
+  transform: translate(
+    calc(-50% + var(--blob-3-dx)),
+    calc(-50% + var(--blob-3-dy))
+  );
+  transition: transform 1550ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .interactive-wallpaper__blob-shape {
@@ -235,6 +265,10 @@
   .interactive-wallpaper::before,
   .interactive-wallpaper__mesh,
   .interactive-wallpaper__veil,
+  .interactive-wallpaper__blob--one,
+  .interactive-wallpaper__blob--two,
+  .interactive-wallpaper__blob--three,
+  .interactive-wallpaper__veil-flow,
   .interactive-wallpaper__blob-shape {
     animation: none;
     transition: none;

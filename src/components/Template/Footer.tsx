@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="footer-content">
         <div className="footer-identity">
           <Link href="/" className="footer-avatar">
-            <ThemePortrait width={80} height={80} />
+            <ThemePortrait width={80} height={80} src="/images/footer-avatar.jpg" />
           </Link>
           <div className="footer-info">
             <h3>Ying Cao</h3>
