@@ -25,7 +25,7 @@ export default function InteractiveWallpaper() {
       root.style.setProperty('--veil-y', `${ny * 52}px`);
     };
 
-    const handlePointerMove = (event: PointerEvent) => {
+    const handlePointerMove = (event: PointerEvent | MouseEvent) => {
       targetX = event.clientX;
       targetY = event.clientY;
       applyOffsets();
