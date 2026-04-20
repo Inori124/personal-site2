@@ -11,12 +11,13 @@ export interface Project {
 
 const data: Project[] = [
   {
-    title: 'LLM Reasoning Eval',
-    subtitle: 'Framework Design · Python',
+    title: 'Internet Finance Risk Control',
+    subtitle: 'Credit Default Modeling · Python',
+    link: '/projects/internet-finance-risk-control',
     image: '/images/projects/nearestdollar.jpg',
     date: '2026-01-31',
-    desc: 'Designed a multi-dimensional evaluation framework for mathematical reasoning in LLMs, emphasizing logical consistency and step-by-step verification.',
-    tech: ['Python', 'LLM Evaluation', 'Prompt Engineering'],
+    desc: 'Built an end-to-end credit-risk workflow on Home Credit data, covering data governance, feature engineering, model evaluation, and explainability.',
+    tech: ['Python', 'LightGBM', 'Random Forest', 'Risk Modeling', 'SHAP'],
     featured: true,
   },
   {
@@ -29,13 +30,21 @@ const data: Project[] = [
     featured: true,
   },
   {
-    title: 'Bank Marketing Prediction',
-    subtitle: 'Machine Learning · R',
-    link: '/writing/eurostar-chatbot-analysis',
+    title: 'Bank Telemarketing Strategy Analysis',
+    subtitle: 'Machine Learning · R/Python',
+    link: '/projects/bank-telemarketing-strategy-analysis',
     image: '/images/projects/spacepotato.jpg',
     date: '2026-01-30',
-    desc: 'Built Random Forest based conversion prediction pipelines and handled class imbalance with SMOTE to improve campaign targeting.',
-    tech: ['R', 'Random Forest', 'SMOTE', 'EDA'],
+    desc: 'Built a conversion prediction workflow for bank telemarketing and translated model insights into practical campaign targeting strategies.',
+    tech: [
+      'R',
+      'Python',
+      'Random Forest',
+      'Class Weighting',
+      'SHAP',
+      'ROC-AUC',
+      'EDA',
+    ],
     featured: true,
   },
 ];
