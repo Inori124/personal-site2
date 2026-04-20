@@ -18,7 +18,7 @@ export default function ThemePortrait({
   height,
   priority = false,
   className = '',
-  src = '/images/me.jpg',
+  src = '/images/me-livephoto.jpg',
 }: ThemePortraitProps) {
   return (
     <span className={`theme-portrait ${className}`}>

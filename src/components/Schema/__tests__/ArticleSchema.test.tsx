@@ -87,7 +87,7 @@ describe('ArticleSchema', () => {
     expect(data.publisher.name).toBe(AUTHOR_NAME);
     expect(data.publisher.url).toBe(SITE_URL);
     expect(data.publisher.logo['@type']).toBe('ImageObject');
-    expect(data.publisher.logo.url).toBe(`${SITE_URL}/images/me.jpg`);
+    expect(data.publisher.logo.url).toBe(`${SITE_URL}/images/me-livephoto.jpg`);
   });
 
   it('includes image for rich search results', () => {
@@ -98,7 +98,7 @@ describe('ArticleSchema', () => {
     );
     const data = JSON.parse(script?.innerHTML || '{}');
 
-    expect(data.image).toBe(`${SITE_URL}/images/me.jpg`);
+    expect(data.image).toBe(`${SITE_URL}/images/me-livephoto.jpg`);
   });
 
   it('includes mainEntityOfPage WebPage reference', () => {

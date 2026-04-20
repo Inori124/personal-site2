@@ -7,7 +7,7 @@ export default function Hero() {
         <div className="hero-avatar">
           {/* biome-ignore lint/performance/noImgElement: Static portrait for hero */}
           <img
-            src="/images/me.jpg"
+            src="/images/me-livephoto.jpg"
             alt="Ying Cao"
             className="hero-avatar-image"
             loading="eager"

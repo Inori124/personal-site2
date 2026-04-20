@@ -28,7 +28,7 @@ export function createPageMetadata({
       ...(absoluteUrl ? { url: absoluteUrl } : {}),
       images: [
         {
-          url: '/images/me.jpg',
+          url: '/images/me-livephoto.jpg',
           width: 1200,
           height: 630,
           alt: AUTHOR_NAME,
@@ -41,7 +41,7 @@ export function createPageMetadata({
       creator: TWITTER_HANDLE,
       title: pageTitle,
       description,
-      images: ['/images/me.jpg'],
+      images: ['/images/me-livephoto.jpg'],
     },
   };
 }
