@@ -21,15 +21,6 @@ const data: Project[] = [
     featured: true,
   },
   {
-    title: 'PISA Data Analysis',
-    subtitle: 'R (Tidyverse) · Educational Data Mining',
-    image: '/images/projects/harvest.jpg',
-    date: '2026-01-30',
-    desc: 'Analyzed global student performance data with tidyverse to examine links between socioeconomic status and learning outcomes.',
-    tech: ['R', 'tidyverse', 'Data Visualization'],
-    featured: true,
-  },
-  {
     title: 'Bank Telemarketing Strategy Analysis',
     subtitle: 'Machine Learning · R/Python',
     link: '/projects/bank-telemarketing-strategy-analysis',
