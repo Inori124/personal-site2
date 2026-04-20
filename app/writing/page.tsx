@@ -94,7 +94,6 @@ export default function WritingPage() {
   const dated = allItems
     .filter((item) => item.date)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  const undated = allItems.filter((item) => !item.date);
 
   return (
     <PageWrapper>
@@ -117,15 +116,6 @@ export default function WritingPage() {
           {dated.map((item) => (
             <WritingItem key={item.url} item={item} />
           ))}
-
-          {undated.length > 0 && (
-            <>
-              <div className="writing-section-label">Guides</div>
-              {undated.map((item) => (
-                <WritingItem key={item.url} item={item} showDate={false} />
-              ))}
-            </>
-          )}
         </div>
       </article>
     </PageWrapper>

@@ -7,20 +7,6 @@ export interface WritingItem {
 
 const data: WritingItem[] = [
   {
-    title: 'WeChat Official Account: Chunye Notes',
-    url: 'https://mp.weixin.qq.com/s/你的公众号某篇欢迎页或主页链接',
-    date: '',
-    description:
-      'A first home for long-form reflections—on data science, on research, and on the books, films, and songs that stay.',
-  },
-  {
-    title: 'Xiaohongshu: Mingqiuqiuqiu',
-    url: 'https://www.xiaohongshu.com/user/你的小红书ID',
-    date: '',
-    description:
-      'Fragments of ordinary days, frames of light, and brief sparks of inspiration.',
-  },
-  {
     title: 'On Trauma and Self-Acceptance',
     url: 'https://mp.weixin.qq.com/s/eqVUGUWEkzN78cM_-G73MA',
     date: '2026-04-18',
